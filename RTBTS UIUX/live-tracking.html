@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Live Bus Tracking - Demo</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+    }
+
+    /* HEADER */
+    .header {
+        background: #d50000;
+        color: white;
+        padding: 15px 30px;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .container {
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .details-box {
+        flex: 1;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .map-box {
+        flex: 3;
+        height: 500px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+
+        background-image: url('map.jpg');   /* LOCAL MAP */
+        background-size: cover;
+        background-position: center;
+    }
+
+    .bus {
+        width: 45px;
+        position: absolute;
+        top: 80%;
+        left: 10%;
+        transition: all 2.5s linear;
+    }
+
+    .footer {
+        background: #d50000;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    .track-btn {
+        padding: 10px 20px;
+        border: none;
+        background: #d50000;
+        color: white;
+        cursor: pointer;
+        border-radius: 6px;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">AbhiBus – Live Tracking (Demo UI)</div>
+
+<div class="container">
+
+    <div class="details-box">
+        <h3>Bus Information</h3>
+
+        <p><b>Bus No:</b> KA-09 7788</p>
+        <p><b>Current Status:</b> Running</p>
+        <p><b>Last Updated:</b> Just now</p>
+
+        <button class="track-btn" onclick="startTracking()">Start Tracking</button>
+    </div>
+
+    <div class="map-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/3448/3448446.png"
+             id="busIcon"
+             class="bus">
+    </div>
+
+</div>
+
+<div class="footer">© 2025 Live Tracking Demo</div>
+
+<script>
+let step = 0;
+
+const path = [
+    {top: "80%", left: "10%"},
+    {top: "70%", left: "25%"},
+    {top: "60%", left: "40%"},
+    {top: "50%", left: "55%"},
+    {top: "40%", left: "70%"},
+    {top: "30%", left: "80%"}
+];
+
+function startTracking() {
+    const bus = document.getElementById("busIcon");
+
+    setInterval(() => {
+        if (step >= path.length) step = 0;
+
+        bus.style.top = path[step].top;
+        bus.style.left = path[step].left;
+
+        step++;
+    }, 2500);
+}
+</script>
+
+</body>
+</html>

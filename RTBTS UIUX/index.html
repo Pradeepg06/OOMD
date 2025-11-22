@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrimeBus Booking</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="logo">PrimeBus</div>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="live.html">Live Tracking</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" id="from" placeholder="From city" />
+      <input type="text" id="to" placeholder="To city" />
+      <input type="date" id="date" />
+      <button onclick="searchBuses()">Search</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="results" class="bus-list">
+      <!-- Bus cards will be injected here -->
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2025 PrimeBus. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
